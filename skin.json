@@ -8,6 +8,7 @@
 	"ValidSkinNames": {
 		"hive": "Hive"
 	},
+	"license-name": "gpl-3.0",
 	"AutoloadClasses": {
 		"SkinHive": "Hive.skin.php"
 	},
