@@ -17,7 +17,6 @@
 						"skins.hive.js"
 					],
 					"styles": [
-						"mediawiki.skinning.interface",
 						"skins.hive"
 					]
 				}
@@ -33,6 +32,20 @@
 	},
 	"ResourceModules": {
 		"skins.hive": {
+			"class": "ResourceLoaderSkinModule",
+			"features": {
+				"elements": true,
+				"content-links": true,
+				"content-media": true,
+				"content-tables": true,
+				"i18n-ordered-lists": true,
+				"i18n-all-lists-margins": true,
+				"i18n-headings": true,
+				"interface": true,
+				"interface-message-box": true,
+				"interface-category": true,
+				"logo": true
+			},
 			"targets": [ "desktop", "mobile" ],
 			"styles": [
 				"resources/bootstrap-cyborg-4.5.3.min.css",
