@@ -6,29 +6,45 @@
 	"namemsg": "skinname-hive",
 	"type": "skin",
 	"ValidSkinNames": {
-		"hive": "Hive"
+		"hive": {
+			"class": "SkinTemplate",
+			"args": [
+				{
+					"name": "hive",
+					"responsive": true,
+					"template": "HiveTemplate",
+					"scripts": [
+						"skins.hive.js"
+					],
+					"styles": [
+						"mediawiki.skinning.interface",
+						"skins.hive"
+					]
+				}
+			]
+		}
 	},
 	"license-name": "gpl-3.0",
 	"AutoloadClasses": {
-		"SkinHive": "Hive.skin.php"
+		"HiveTemplate": "HiveTemplate.php"
 	},
 	"MessagesDirs": {
 		"Hive": "i18n"
 	},
 	"ResourceModules": {
 		"skins.hive": {
-			"styles": {
-				"resources/bootstrap-cyborg-4.5.3.min.css": {},
-				"resources/bootstrap-colorfix.css": {},
-				"resources/default.css": {}
-			}
+			"targets": [ "desktop", "mobile" ],
+			"styles": [
+				"resources/bootstrap-cyborg-4.5.3.min.css",
+				"resources/bootstrap-colorfix.css",
+				"resources/default.css"
+			]
 		},
 		"skins.hive.js": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": [
 				"resources/bootstrap-4.5.3.bundle.min.js"
-			],
-			"position": "bottom",
-			"dependencies": "jquery"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {

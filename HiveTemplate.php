@@ -1,44 +1,6 @@
 <?php
 /**
- * Skin file for skin Foo Bar.
- *
- * @file
- * @ingroup Skins
- */
-
-/**
- * SkinTemplate class for Hive skin
- * @ingroup Skins
- */
-class SkinHive extends SkinTemplate
-{
-    var $skinname = 'hive', $stylename = 'Hive', $template = 'HiveTemplate';
-
-    /**
-     * This function adds JavaScript via ResourceLoader
-     *
-     * Use this function if your skin has a JS file(s).
-     * Otherwise you won't need this function and you can safely delete it.
-     *
-     * @param OutputPage $out
-     */
-
-    public function initPage(OutputPage $out)
-    {
-        parent::initPage($out);
-        $out->addModules('skins.hive.js');
-        /* 'skins.foobar.js' is the name you used in your skin.json file */
-
-        $out->addMeta('viewport', 'width=device-width, initial-scale=1.0');
-        $out->addLink(array('rel' => 'icon', 'type' => 'image/png', 'href' => '/images/HiveLogo_160.png'));
-        $out->addModuleStyles(array(
-            'mediawiki.skinning.interface', 'skins.hive'
-        ));
-    }
-}
-
-/**
- * BaseTemplate class for Foo Bar skin
+ * BaseTemplate class for Hive skin
  *
  * @ingroup Skins
  */
