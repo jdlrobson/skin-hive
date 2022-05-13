@@ -11,6 +11,7 @@
 			"args": [
 				{
 					"name": "hive",
+					"bodyOnly": true,
 					"responsive": true,
 					"template": "HiveTemplate",
 					"scripts": [

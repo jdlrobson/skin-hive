@@ -10,8 +10,7 @@ class HiveTemplate extends BaseTemplate
      * Outputs the entire contents of the page
      */
     public function execute()
-    {
-        $this->html('headelement'); ?>
+    {?>
 
         <nav class="navbar navbar-expand-md navbar-dark bg-primary">
             <div class="navbar-brand">The Hive</div>
@@ -217,10 +216,6 @@ class HiveTemplate extends BaseTemplate
 
                 </div>
             </div>
-        </div>
-
-        <?php $this->printTrail(); ?>
-        </body>
-        </html><?php
+        </div><?php
     }
 }
