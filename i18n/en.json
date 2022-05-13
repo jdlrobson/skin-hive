@@ -1,4 +1,6 @@
 {
 	"skinname-hive": "Hive",
-	"hive-desc": "Skin for the Hive Wiki"
+	"hive-desc": "Skin for the Hive Wiki",
+	"hive-prefs-talkpage-label": "Discuss",
+	"hive-prefs-talkpage": "https://www.mediawiki.org/wiki/MediaWiki_on_Discord"
 }

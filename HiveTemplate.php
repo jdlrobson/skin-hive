@@ -13,7 +13,7 @@ class HiveTemplate extends BaseTemplate
     {?>
 
         <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-            <div class="navbar-brand">The Hive</div>
+            <div class="navbar-brand"><?php $this->msg( 'sitetitle' ) ?></div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
                     aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,11 +22,13 @@ class HiveTemplate extends BaseTemplate
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="https://wiki.hive.gay/">Wiki<span
+                        <a class="nav-link" href="<?php echo Title::newMainPage()->getLocalUrl() ?>">Wiki<span
                                     class="sr-only"> (current)</span></a>
                     </li>
                 </ul>
-                <a class="btn btn-discord" href="https://discord.gg/vRSXKt6" target="_blank">Join our Discord</a>
+                <a class="btn btn-discord" href="<?php echo $this->msg( 'hive-prefs-talkpage' ) ?>" target="_blank">
+                    <?php echo $this->msg( 'hive-prefs-talkpage-label' ) ?>
+                </a>
             </div>
         </nav>
 
