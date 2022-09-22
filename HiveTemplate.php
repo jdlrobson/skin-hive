@@ -10,7 +10,9 @@ class HiveTemplate extends BaseTemplate
      * Outputs the entire contents of the page
      */
     public function execute()
-    {?>
+    {
+        $skin = $this->getSkin();
+    ?>
 
         <nav class="navbar navbar-expand-md navbar-dark bg-primary">
             <div class="navbar-brand"><?php $this->msg( 'sitetitle' ) ?></div>
@@ -38,8 +40,8 @@ class HiveTemplate extends BaseTemplate
 
                     <ul id="personaltools">
                         <?php
-                        foreach ($this->getPersonalTools() as $key => $item) {
-                            echo $this->makeListItem($key, $item);
+                        foreach ($skin->getPersonalToolsForMakeListItem( $this->get( 'personal_urls' ) ) as $key => $item) {
+                            echo $skin->makeListItem($key, $item);
                         }
                         ?>
                     </ul>
@@ -153,10 +155,18 @@ class HiveTemplate extends BaseTemplate
                         <div class="col text-right">
                             <ul id="footericons">
                                 <?php
-                                foreach ($this->getFooterIcons('icononly') as $blockName => $footerIcons) { ?>
+                                $footericons = $this->get('footericons');
+                                foreach ( $footericons as $footerIconsKey => &$footerIconsBlock ) {
+                                        foreach ( $footerIconsBlock as $footerIconKey => $footerIcon ) {
+                                                if ( !isset( $footerIcon['src'] ) ) {
+                                                        unset( $footerIconsBlock[$footerIconKey] );
+                                                }
+                                        }
+                                }
+                                foreach ($footericons as $blockName => $icons) { ?>
                                     <li>
                                         <?php
-                                        foreach ($footerIcons as $icon) {
+                                        foreach ($icons as $icon) {
                                             echo $this->getSkin()->makeFooterIcon($icon);
                                         }
                                         ?>
@@ -190,7 +200,7 @@ class HiveTemplate extends BaseTemplate
 
                     <form action="<?php $this->text('wgScript'); ?>">
                         <input type="hidden" name="title" value="<?php $this->text('searchtitle') ?>"/>
-                        <?php echo $this->makeSearchInput(array('class' => 'form-control mt-1 mb-3')); ?>
+                        <?php echo $skin->makeSearchInput(array('class' => 'form-control mt-1 mb-3')); ?>
                     </form>
 
                     <?php
@@ -204,7 +214,7 @@ class HiveTemplate extends BaseTemplate
                                 <ul>
                                     <?php
                                     foreach ($box['content'] as $key => $item) {
-                                        echo $this->makeListItem($key, $item);
+                                        echo $skin->makeListItem($key, $item);
                                     }
                                     ?>
                                 </ul>
